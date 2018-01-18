@@ -15,9 +15,9 @@
     <children>
         <AnchorPane fx:id="rootpane" prefHeight="500.0" prefWidth="600.0">
             <children>
-                <Text fx:id="title" boundsType="LOGICAL_VERTICAL_CENTER" fill="#0d0d0d" layoutX="150.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Title&quot;" wrappingWidth="326.9830722808838">
+                <Text fx:id="title" boundsType="LOGICAL_VERTICAL_CENTER" layoutX="150.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="welcome-font" text="BATTLESHIP" textAlignment="CENTER" wrappingWidth="326.9830722808838">
                     <font>
-                        <Font size="34.0" />
+                        <Font size="50.0"/>
                     </font>
                 </Text>
                 <Button alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="165.0" mnemonicParsing="false" onAction="#startSetup" prefHeight="35.0" prefWidth="240.0" styleClass="btn-welcome" text="START NEW GAME" textAlignment="CENTER" />
@@ -75,7 +75,7 @@
                     <font>
                         <Font size="20.0" />
                     </font></Text>
-                <Button fx:id="confirm" layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#startgame" prefHeight="50.0" prefWidth="200.0" text="Confirm">
+                <Button fx:id="confirm" layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#startgame" prefHeight="50.0" prefWidth="200.0" styleClass="pics/buttonWood.png" text="Confirm">
                     <font>
                         <Font name="Arial" size="20.0" />
                     </font></Button>
