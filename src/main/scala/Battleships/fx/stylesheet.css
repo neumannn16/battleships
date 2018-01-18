@@ -13,7 +13,7 @@
 
 .background-welcome{
     -fx-background-color: yellow;
-    -fx-background-image: url("pics/bg-welcome.png");
+    -fx-background-image: url("pics/bg-welcome.jpg");
     -fx-background-size: 610px,600px;
 }
 .btn-welcome{
@@ -26,7 +26,7 @@
     -fx-background-height: 80px;
     -fx-background-insets: 0,1,4,5,6;
     -fx-background-radius: 9,8,5,4,3;
-    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.4), 5, 0.0 , 0 , 1 );
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0.0 , 0 , 1 );
 }
 
 .btn-place {
@@ -75,9 +75,7 @@
 }
 
 .welcome-font{
-    -fx-font-color: #c4a03e;
+    -fx-text-color: #c4a03e;
     -fx-font-family: sans-serif;
     -fx-font-weight: bolder;
 }
-
-
