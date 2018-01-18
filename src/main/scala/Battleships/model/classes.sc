@@ -2,14 +2,33 @@
 //HELPING FUNCTIONS
 def existIn (elem1 : Any, elem2 : List[Any]): Boolean = {
   elem2.length match{
-    case 0 => "Dominik" == "isanicerdude"
+    case 0 => false
     case otherwhise => {
-      if (elem1 == elem2.head) 1==1
+      if (elem1 == elem2.head) true
       else existIn(elem1,elem2.tail)
     }
   }
 }
 
+def existInListList (elem1 : Position, elem2 : List[List[Position]]): Boolean = {
+  elem2.length match{
+    case 0 => false
+    case otherwhise => {
+      if(existIn(elem1,elem2.head)) true
+      else existInListList(elem1,elem2.tail)
+    }
+  }
+}
+
+def hasSimiliarEntitites (elem1 : List[Position],elem2 : List[List[Position]]) : Boolean = {
+  elem1.length match{
+    case 0 => false
+    case otherwhise => {
+      if(existInListList(elem1.head,elem2)) true
+      else hasSimiliarEntitites(elem1.tail,elem2)
+    }
+  }
+}
 def findElemPos (elem1 : Position, elem2 : List[Position]): Position = { //Wenn mit ergebnis in diesem Fall Position weitergearbeitet werden wird MUSS DER Return Type Pos sein deswegen ähnliche funks.
   elem2.length match{
     case 0 => Position(0,0)
@@ -55,15 +74,15 @@ case class Battlefield (var size :Int) {
   val fields = construct(size)
 
   def construct (size : Int, sizeHolder : Int = size, holder : List[Position] =List(Position(0,0))):List[Position] = {
-   require(sizeHolder > 0, "warum bloß ? I bin a zaubara.")
-   size match {
+    require(sizeHolder > 0, "warum bloß ? I bin a zaubara.")
+    size match {
       case 0 => holder.filter(_ != Position(0,0))
       case otherwise =>
         var i = 0
         var list = List(Position(0,0))
         while (i < sizeHolder) {
-           list = list ::: List(Position(size,i+1))
-           i=i+1
+          list = list ::: List(Position(size,i+1))
+          i=i+1
         }
         construct(size-1,sizeHolder,holder ::: list)
     }
@@ -125,7 +144,7 @@ case class Player (id : Int, name : String) {
         var PosList = getElemListPos(flotte.shipsPos,i)
         if(findElemPos(shotPos,PosList) != Position(0,0)){
           println("Das Schiff " + i + " wurde an der Koordinate " + shotPos + " getroffen." + PosList.length)
-         if(PosList.length == 1) println("Ein Schiff wurde zerstört !") //Wenn zum Zeitpunkt des Treffers die länge der betroffenen Liste eins ist ist danach das Schiff zerstört ;)
+          if(PosList.length == 1) println("Ein Schiff wurde zerstört !") //Wenn zum Zeitpunkt des Treffers die länge der betroffenen Liste eins ist ist danach das Schiff zerstört ;)
           flotte.removeHit(shotPos) //Wenn Treffer wird Koordinate entfernt
         }
         i += 1
@@ -136,3 +155,7 @@ case class Player (id : Int, name : String) {
   }
 }
 //CLASSES END
+val shot = List(Position(2,2),Position(3,3),Position(1,1))
+val list = List(List(Position(4,4),Position(1,2)),List(Position(3,3),Position(1,1)))
+
+hasSimiliarEntitites(shot,list)
